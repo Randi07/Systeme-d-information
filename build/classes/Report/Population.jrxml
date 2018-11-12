@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Population" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="94a8c851-4b3b-403d-8007-26488b566747">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     population.`ID_POPULATION` AS population_ID_POPULATION,
+     population.`ID_FKT` AS population_ID_FKT,
+     population.`ID_COM` AS population_ID_COM,
+     population.`ZERO` AS population_ZERO,
+     population.`SIX` AS population_SIX,
+     population.`DIXHUIT` AS population_DIXHUIT,
+     population.`SOIXANTE` AS population_SOIXANTE,
+     population.`EFFECTIF_MASCULAIN` AS population_EFFECTIF_MASCULAIN,
+     population.`EFFECTIF_FEMININ` AS population_EFFECTIF_FEMININ,
+     population.`EFFECTIF_TOTAL` AS population_EFFECTIF_TOTAL,
+     population.`DATE_REC` AS population_DATE_REC
+FROM
+     `population` population]]>
+	</queryString>
+	<field name="population_ID_POPULATION" class="java.lang.String"/>
+	<field name="population_ID_FKT" class="java.lang.String"/>
+	<field name="population_ID_COM" class="java.lang.String"/>
+	<field name="population_ZERO" class="java.lang.String"/>
+	<field name="population_SIX" class="java.lang.String"/>
+	<field name="population_DIXHUIT" class="java.lang.String"/>
+	<field name="population_SOIXANTE" class="java.lang.String"/>
+	<field name="population_EFFECTIF_TOTAL" class="java.lang.String"/>
+	<field name="population_DATE_REC" class="java.lang.String"/>
+	<group name="population_ID_COM">
+		<groupExpression><![CDATA[$F{population_ID_COM}]]></groupExpression>
+		<groupHeader>
+			<band height="27">
+				<frame>
+					<reportElement mode="Opaque" x="0" y="3" width="721" height="24" forecolor="#B89F7D" backcolor="#000000" uuid="5a1794d1-dd85-466b-aaf2-29db6398390f"/>
+					<textField isStretchWithOverflow="true">
+						<reportElement style="SubTitle" x="2" y="0" width="695" height="24" forecolor="#FFFFFF" uuid="c2567d9f-5596-4811-ad32-cf1a5a3d7d8f"/>
+						<textElement>
+							<font isBold="false"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{population_ID_COM}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<rectangle>
+					<reportElement x="725" y="3" width="77" height="24" backcolor="#666666" uuid="bcf89545-0344-4b5b-800c-de7b288bf3aa"/>
+					<graphicElement>
+						<pen lineWidth="0.0"/>
+					</graphicElement>
+				</rectangle>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<group name="population_ID_FKT">
+		<groupExpression><![CDATA[$F{population_ID_FKT}]]></groupExpression>
+		<groupHeader>
+			<band height="30">
+				<textField>
+					<reportElement positionType="Float" x="0" y="4" width="802" height="26" forecolor="#000000" uuid="2779c9f9-4a06-4f34-b44f-66390c939d42"/>
+					<textElement>
+						<font fontName="Times New Roman" size="16" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{population_ID_FKT}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="102" splitType="Stretch">
+			<image>
+				<reportElement x="725" y="0" width="77" height="102" uuid="1fccc469-7da1-416b-93a2-61b129c1bfb2"/>
+				<imageExpression><![CDATA["AMM.jpg"]]></imageExpression>
+			</image>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="721" height="66" forecolor="#3399FF" backcolor="#333333" uuid="d8c4779b-eb80-43cf-b847-31624e6ebc9a"/>
+				<staticText>
+					<reportElement style="Title" x="0" y="0" width="370" height="66" forecolor="#3399FF" backcolor="#333333" uuid="f3f60d23-e1c1-4421-9b4f-4cdd29f551f7"/>
+					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
+					<textElement verticalAlignment="Bottom">
+						<font size="24" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Nombre de population]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="SubTitle" x="370" y="37" width="316" height="29" forecolor="#6699FF" uuid="4ffdd9dc-88a2-4c23-a679-fe86ebac8c72"/>
+					<textElement textAlignment="Right">
+						<font size="22" isBold="false"/>
+					</textElement>
+					<text><![CDATA[par fokontany parmis les communes]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="70" width="721" height="32" forecolor="#000000" backcolor="#CC0000" uuid="59a2a059-1908-4058-ac01-1ced8276e7b6"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="553" y="12" width="144" height="20" forecolor="#FFFFFF" uuid="6b993a40-49d8-4795-bcb9-e05e9e8a9b35"/>
+					<textElement textAlignment="Right">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="18" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="113" height="18" forecolor="#000000" uuid="88d58a98-bf24-4c69-9704-a53b088ee4c4"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Numero ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="113" y="0" width="113" height="18" forecolor="#000000" uuid="eedcf4ca-67f8-4648-bc33-cb58a0ea6feb"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[0-5 ans]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="226" y="0" width="113" height="18" forecolor="#000000" uuid="b88c8bb8-c5d1-44f0-8c7a-5bb49a3b42d9"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[6-17 ans]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="339" y="0" width="113" height="18" forecolor="#000000" uuid="f76f9c3c-d06c-4ce7-85a7-03c995b40520"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[18-60 ans]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="452" y="0" width="113" height="18" forecolor="#000000" uuid="0b373679-d354-463b-a5f8-07a59d92b7f7"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[+ 60 ans]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="565" y="0" width="113" height="18" forecolor="#000000" uuid="2ec8c961-b782-4dea-9ab6-0201c3a7c7c0"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Effectif Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="678" y="0" width="113" height="18" forecolor="#000000" uuid="3e158bcf-baab-4dbe-a9f7-3c308beb96ba"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Date recensement]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="797" height="18" uuid="a612300d-1dbb-4baf-9c89-dbaf775c7b5e"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="0" y="0" width="113" height="18" uuid="3671ae4b-b853-4801-b245-42628f3b4f0a"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{population_ID_POPULATION}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="113" y="0" width="113" height="18" uuid="6d9d8baf-62b2-4640-9b91-0d19cbbcddfd"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{population_ZERO}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="226" y="0" width="113" height="18" uuid="cfbf09a1-3118-4fa9-9ad7-028b169e5ce3"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{population_SIX}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="339" y="0" width="113" height="18" uuid="69cc6fc5-3cd5-4204-9038-4913dd5e854e"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{population_DIXHUIT}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="452" y="0" width="113" height="18" uuid="b6500ea3-66f7-4b7b-a233-8b7692fef228"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{population_SOIXANTE}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="565" y="0" width="113" height="18" uuid="81c550a6-5ba3-4e06-95a6-2b6dd71a9b56"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{population_EFFECTIF_TOTAL}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="678" y="0" width="113" height="18" uuid="2b8fb2c8-5d0d-44cf-9431-bf52047956a5"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{population_DATE_REC}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="41199e64-2a38-4b32-a6d1-5d2ef01427bd"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="25" forecolor="#D0B48E" backcolor="#000000" uuid="4fa64d57-b317-445a-b65c-8e0dabce1edd"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="757" y="3" width="40" height="20" forecolor="#FFFFFF" uuid="75e647a1-1a0d-4ccd-975d-cf2a9dc2ea3e"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="677" y="3" width="80" height="20" forecolor="#FFFFFF" uuid="60ade44e-7cd7-4dc9-8dbb-bdab3c37f9a8"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="3" width="197" height="20" forecolor="#FFFFFF" uuid="cfd0b0b8-cf82-4dd8-8739-024ec10741bf"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
